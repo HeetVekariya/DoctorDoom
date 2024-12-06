@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "doctordoom"
+version = "0.1.0"
+description = "Doom will take over entire MCU through false disease prediction"
+authors = ["Heet"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.6"
+uvicorn = "^0.32.1"
+pillow = "^11.0.0"
+scikit-learn = "^1.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
