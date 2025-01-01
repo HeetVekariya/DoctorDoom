@@ -22,21 +22,22 @@ import { useState } from "react";
 
 const Main = () => {
   const [formData, setFormData] = useState({
-    age: "",
-    income: "",
-    gender: "",
-    education: "",
-    maritalStatus: "",
-    hasChildren: "",
-    ownsCar: "",
-    ownsHouse: "",
-    hasCreditCard: "",
-    hasLoan: "",
-    isSmoker: "",
-    drinkingHabit: "",
-    exerciseFrequency: "",
-    eatsHealthy: "",
-    sleepHours: "",
+    BMI: "",
+    Smoking: "",
+    AlcoholDrinking: "",
+    Stroke: "",
+    DiffWalking: "",
+    Sex: "",
+    AgeCategory: "",
+    Race: "",
+    Diabetic: "",
+    PhysicalActivity: "",
+    GenHealth: "",
+    SleepTime: "",
+    Asthma: "",
+    KidneyDisease: "",
+    SkinCancer: "",
+    HeartDisease: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,27 +56,28 @@ const Main = () => {
 
   const handleReset = () => {
     setFormData({
-      age: "",
-      income: "",
-      gender: "",
-      education: "",
-      maritalStatus: "",
-      hasChildren: "",
-      ownsCar: "",
-      ownsHouse: "",
-      hasCreditCard: "",
-      hasLoan: "",
-      isSmoker: "",
-      drinkingHabit: "",
-      exerciseFrequency: "",
-      eatsHealthy: "",
-      sleepHours: "",
+      BMI: "",
+      Smoking: "",
+      AlcoholDrinking: "",
+      Stroke: "",
+      DiffWalking: "",
+      Sex: "",
+      AgeCategory: "",
+      Race: "",
+      Diabetic: "",
+      PhysicalActivity: "",
+      GenHealth: "",
+      SleepTime: "",
+      Asthma: "",
+      KidneyDisease: "",
+      SkinCancer: "",
+      HeartDisease: "",
     });
   };
 
   return (
-    <main className="flex-grow grid place-items-center mt-4 mb-4">
-      <Card>
+    <main className="flex-grow grid place-items-center my-2">
+      <Card className="w-full max-w-4xl mx-auto">
         <CardHeader>
           <CardTitle>Fill the details below</CardTitle>
           <CardDescription>
@@ -83,215 +85,355 @@ const Main = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <div className="space-y-6">
+              {/* BMI */}
               <div className="space-y-2">
-                <Label htmlFor="age">Age</Label>
+                <Label htmlFor="BMI">BMI</Label>
                 <Input
-                  id="age"
-                  name="age"
+                  id="BMI"
+                  name="BMI"
                   type="number"
-                  value={formData.age}
+                  value={formData.BMI}
                   onChange={handleInputChange}
                   required
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="income">Annual Income</Label>
-                <Input
-                  id="income"
-                  name="income"
-                  type="number"
-                  value={formData.income}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
+              {/* Smoking */}
               <div className="space-y-2">
-                <Label>Gender</Label>
+                <Label>Smoking</Label>
                 <RadioGroup
-                  name="gender"
-                  value={formData.gender}
-                  onValueChange={handleSelectChange("gender")}
+                  name="Smoking"
+                  value={formData.Smoking}
+                  onValueChange={handleSelectChange("Smoking")}
                   className="flex space-x-4"
                 >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="male" id="male" />
+                    <RadioGroupItem value="1" id="smokingYes" />
+                    <Label htmlFor="smokingYes">Yes</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="0" id="smokingNo" />
+                    <Label htmlFor="smokingNo">No</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              {/* Alcohol Drinking */}
+              <div className="space-y-2">
+                <Label>Alcohol Drinking</Label>
+                <RadioGroup
+                  name="AlcoholDrinking"
+                  value={formData.AlcoholDrinking}
+                  onValueChange={handleSelectChange("AlcoholDrinking")}
+                  className="flex space-x-4"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="1" id="alcoholYes" />
+                    <Label htmlFor="alcoholYes">Yes</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="0" id="alcoholNo" />
+                    <Label htmlFor="alcoholNo">No</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              {/* Stroke */}
+              <div className="space-y-2">
+                <Label>Stroke</Label>
+                <RadioGroup
+                  name="Stroke"
+                  value={formData.Stroke}
+                  onValueChange={handleSelectChange("Stroke")}
+                  className="flex space-x-4"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="1" id="strokeYes" />
+                    <Label htmlFor="strokeYes">Yes</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="0" id="strokeNo" />
+                    <Label htmlFor="strokeNo">No</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              {/* Difficulty Walking */}
+              <div className="space-y-2">
+                <Label>Difficulty Walking</Label>
+                <RadioGroup
+                  name="DiffWalking"
+                  value={formData.DiffWalking}
+                  onValueChange={handleSelectChange("DiffWalking")}
+                  className="flex space-x-4"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="1" id="diffWalkingYes" />
+                    <Label htmlFor="diffWalkingYes">Yes</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="0" id="diffWalkingNo" />
+                    <Label htmlFor="diffWalkingNo">No</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              {/* Sex */}
+              <div className="space-y-2">
+                <Label>Sex</Label>
+                <RadioGroup
+                  name="Sex"
+                  value={formData.Sex}
+                  onValueChange={handleSelectChange("Sex")}
+                  className="flex space-x-4"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="Male" id="male" />
                     <Label htmlFor="male">Male</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="female" id="female" />
+                    <RadioGroupItem value="Female" id="female" />
                     <Label htmlFor="female">Female</Label>
                   </div>
                 </RadioGroup>
               </div>
+
+              {/* Age Category */}
               <div className="space-y-2">
-                <Label htmlFor="education">Education Level</Label>
+                <Label>Age Category</Label>
                 <Select
-                  name="education"
-                  value={formData.education}
-                  onValueChange={handleSelectChange("education")}
+                  name="AgeCategory"
+                  value={formData.AgeCategory}
+                  onValueChange={handleSelectChange("AgeCategory")}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select education level" />
+                    <SelectValue placeholder="Select age category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="highschool">High School</SelectItem>
-                    <SelectItem value="bachelor">
-                      Bachelor&apos;s Degree
-                    </SelectItem>
-                    <SelectItem value="master">Master&apos;s Degree</SelectItem>
-                    <SelectItem value="phd">PhD</SelectItem>
+                    {[
+                      "18-24",
+                      "25-29",
+                      "30-34",
+                      "35-39",
+                      "40-44",
+                      "45-49",
+                      "50-54",
+                      "55-59",
+                      "60-64",
+                      "65-69",
+                      "70-74",
+                      "75-79",
+                      "80 or older",
+                    ].map((age) => (
+                      <SelectItem key={age} value={age}>
+                        {age}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Race */}
+              <div className="space-y-2">
+                <Label>Race</Label>
+                <Select
+                  name="Race"
+                  value={formData.Race}
+                  onValueChange={handleSelectChange("Race")}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select race" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[
+                      "White",
+                      "Black",
+                      "Asian",
+                      "American Indian/Alaskan Native",
+                      "Hispanic",
+                      "Other",
+                    ].map((race) => (
+                      <SelectItem key={race} value={race}>
+                        {race}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-6">
+              {/* Diabetic */}
               <div className="space-y-2">
-                <Label htmlFor="maritalStatus">Marital Status</Label>
+                <Label>Diabetic</Label>
                 <Select
-                  name="maritalStatus"
-                  value={formData.maritalStatus}
-                  onValueChange={handleSelectChange("maritalStatus")}
+                  name="Diabetic"
+                  value={formData.Diabetic}
+                  onValueChange={handleSelectChange("Diabetic")}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select marital status" />
+                    <SelectValue placeholder="Select diabetic status" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="single">Single</SelectItem>
-                    <SelectItem value="married">Married</SelectItem>
-                    <SelectItem value="divorced">Divorced</SelectItem>
-                    <SelectItem value="widowed">Widowed</SelectItem>
+                    <SelectItem value="No">No</SelectItem>
+                    <SelectItem value="Yes">Yes</SelectItem>
+                    <SelectItem value="No, borderline diabetes">
+                      No, borderline diabetes
+                    </SelectItem>
+                    <SelectItem value="Yes (during pregnancy)">
+                      Yes (during pregnancy)
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
+
+              {/* Physical Activity */}
               <div className="space-y-2">
-                <Label>Has Children</Label>
+                <Label>Physical Activity</Label>
                 <RadioGroup
-                  name="hasChildren"
-                  value={formData.hasChildren}
-                  onValueChange={handleSelectChange("hasChildren")}
+                  name="PhysicalActivity"
+                  value={formData.PhysicalActivity}
+                  onValueChange={handleSelectChange("PhysicalActivity")}
                   className="flex space-x-4"
                 >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="hasChildrenYes" />
-                    <Label htmlFor="hasChildrenYes">Yes</Label>
+                    <RadioGroupItem value="1" id="physicalYes" />
+                    <Label htmlFor="physicalYes">Yes</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="no" id="hasChildrenNo" />
-                    <Label htmlFor="hasChildrenNo">No</Label>
+                    <RadioGroupItem value="0" id="physicalNo" />
+                    <Label htmlFor="physicalNo">No</Label>
                   </div>
                 </RadioGroup>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Owns Car", name: "ownsCar" },
-                { label: "Owns House", name: "ownsHouse" },
-                { label: "Has Credit Card", name: "hasCreditCard" },
-                { label: "Has Loan", name: "hasLoan" },
-                { label: "Is Smoker", name: "isSmoker" },
-              ].map((item) => (
-                <div key={item.name} className="space-y-2">
-                  <Label>{item.label}</Label>
+              {/* General Health */}
+              <div className="space-y-2">
+                <Label>General Health</Label>
+                <Select
+                  name="GenHealth"
+                  value={formData.GenHealth}
+                  onValueChange={handleSelectChange("GenHealth")}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select general health" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Excellent">Excellent</SelectItem>
+                    <SelectItem value="Very good">Very good</SelectItem>
+                    <SelectItem value="Good">Good</SelectItem>
+                    <SelectItem value="Fair">Fair</SelectItem>
+                    <SelectItem value="Poor">Poor</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Sleep Time */}
+              <div className="space-y-2">
+                <Label htmlFor="SleepTime">Sleep Time</Label>
+                <Input
+                  id="SleepTime"
+                  name="SleepTime"
+                  type="number"
+                  value={formData.SleepTime}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Enter hours of sleep"
+                />
+              </div>
+
+              {/* Health Conditions Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Kidney Disease */}
+                <div className="space-y-2">
+                  <Label>Kidney Disease</Label>
                   <RadioGroup
-                    name={item.name}
-                    value={formData[item.name as keyof typeof formData]}
-                    onValueChange={handleSelectChange(item.name)}
+                    name="KidneyDisease"
+                    value={formData.KidneyDisease}
+                    onValueChange={handleSelectChange("KidneyDisease")}
                     className="flex space-x-4"
                   >
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="yes" id={`${item.name}Yes`} />
-                      <Label htmlFor={`${item.name}Yes`}>Yes</Label>
+                      <RadioGroupItem value="1" id="kidneyYes" />
+                      <Label htmlFor="kidneyYes">Yes</Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="no" id={`${item.name}No`} />
-                      <Label htmlFor={`${item.name}No`}>No</Label>
+                      <RadioGroupItem value="0" id="kidneyNo" />
+                      <Label htmlFor="kidneyNo">No</Label>
                     </div>
                   </RadioGroup>
                 </div>
-              ))}
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="drinkingHabit">Drinking Habit</Label>
-                <Select
-                  name="drinkingHabit"
-                  value={formData.drinkingHabit}
-                  onValueChange={handleSelectChange("drinkingHabit")}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select drinking habit" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="never">Never</SelectItem>
-                    <SelectItem value="occasionally">Occasionally</SelectItem>
-                    <SelectItem value="socially">Socially</SelectItem>
-                    <SelectItem value="regularly">Regularly</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="exerciseFrequency">Exercise Frequency</Label>
-                <Select
-                  name="exerciseFrequency"
-                  value={formData.exerciseFrequency}
-                  onValueChange={handleSelectChange("exerciseFrequency")}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select exercise frequency" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="never">Never</SelectItem>
-                    <SelectItem value="occasionally">Occasionally</SelectItem>
-                    <SelectItem value="weekly">Weekly</SelectItem>
-                    <SelectItem value="daily">Daily</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
+                {/* Skin Cancer */}
+                <div className="space-y-2">
+                  <Label>Skin Cancer</Label>
+                  <RadioGroup
+                    name="SkinCancer"
+                    value={formData.SkinCancer}
+                    onValueChange={handleSelectChange("SkinCancer")}
+                    className="flex space-x-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="1" id="skinYes" />
+                      <Label htmlFor="skinYes">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="0" id="skinNo" />
+                      <Label htmlFor="skinNo">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label>Eats Healthy</Label>
-                <RadioGroup
-                  name="eatsHealthy"
-                  value={formData.eatsHealthy}
-                  onValueChange={handleSelectChange("eatsHealthy")}
-                  className="flex space-x-4"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="eatsHealthyYes" />
-                    <Label htmlFor="eatsHealthyYes">Yes</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="no" id="eatsHealthyNo" />
-                    <Label htmlFor="eatsHealthyNo">No</Label>
-                  </div>
-                </RadioGroup>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="sleepHours">Average Sleep Hours</Label>
-                <Input
-                  id="sleepHours"
-                  name="sleepHours"
-                  type="number"
-                  value={formData.sleepHours}
-                  onChange={handleInputChange}
-                  required
-                />
+                {/* Asthma */}
+                <div className="space-y-2">
+                  <Label>Asthma</Label>
+                  <RadioGroup
+                    name="Asthma"
+                    value={formData.Asthma}
+                    onValueChange={handleSelectChange("Asthma")}
+                    className="flex space-x-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="1" id="asthmaYes" />
+                      <Label htmlFor="asthmaYes">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="0" id="asthmaNo" />
+                      <Label htmlFor="asthmaNo">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+
+                {/* Heart Disease */}
+                <div className="space-y-2">
+                  <Label>Heart Disease</Label>
+                  <RadioGroup
+                    name="HeartDisease"
+                    value={formData.HeartDisease}
+                    onValueChange={handleSelectChange("HeartDisease")}
+                    className="flex space-x-4"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="1" id="heartYes" />
+                      <Label htmlFor="heartYes">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="0" id="heartNo" />
+                      <Label htmlFor="heartNo">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
               </div>
             </div>
           </form>
         </CardContent>
 
-        <CardFooter className="gap-2">
+        <CardFooter className="flex justify-center gap-4">
           <Button variant="default" onClick={handleSubmit}>
             Submit
           </Button>

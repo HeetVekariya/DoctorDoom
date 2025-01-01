@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center text-primary/70 font-semibold py-2">
+    <footer className="flex flex-col items-center justify-center text-primary/70 font-semibold py-6 border border-border border-t-2 min-h-full">
       <p>
         A project by&nbsp;
         <Link href="https://x.com/heet_2104" className="text-primary font-bold">
